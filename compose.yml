@@ -1,0 +1,33 @@
+services:
+  mysql-commerce-db:
+    image: mysql:8.0
+    container_name: container_mysql-commerce-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: commerce
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user123
+    ports:
+      - "3306:3306"
+    volumes:
+      - commerce_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+
+  phpmyadmin-commerce-db:
+    container_name: container_phpmyadmin-commercedb
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - "8085:80"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      PMA_HOST: mysql-commerce-db
+      PMA_USER: user
+      PMA_PASSWORD: user123
+    depends_on:
+      - mysql-commerce-db
+    restart: unless-stopped
+
+volumes:
+  commerce_mysql_data:
+    driver: local
