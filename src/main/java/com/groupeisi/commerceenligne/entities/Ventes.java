@@ -18,7 +18,7 @@ public class Ventes implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "date_p", nullable = false)
     private LocalDate dateP;

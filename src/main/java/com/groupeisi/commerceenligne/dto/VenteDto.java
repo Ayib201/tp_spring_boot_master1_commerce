@@ -9,8 +9,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class VenteDto {
-    private long id;
+    private Long id;
     private LocalDate dateP;
     private double quantity;
-    private long produitId;
+    private String produitId;
 }

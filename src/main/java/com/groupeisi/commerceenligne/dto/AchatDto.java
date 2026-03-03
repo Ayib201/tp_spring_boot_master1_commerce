@@ -12,5 +12,5 @@ public class AchatDto {
     private Long id;
     private Date dateP;
     private double quantity;
-    private Long produitId;
+    private String produitId;
 }

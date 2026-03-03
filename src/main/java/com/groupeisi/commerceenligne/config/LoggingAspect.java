@@ -27,8 +27,7 @@ public class LoggingAspect {
     /**
      * Pointcut that matches all Spring beans in the application's main packages.
      */
-    @Pointcut("within(com.groupeisi.commerceenligne..*)" +
-            " || within(com.groupeisi.commerceenligne.controller..*)")
+    @Pointcut("within(com.groupeisi.commerceenligne..*)")
     public void applicationPackagePointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.
     }
